@@ -45,3 +45,43 @@ vim.cmd [[au BufEnter * if &buftype == 'terminal' | :startinsert | endif]]
 vim.api.nvim_set_keymap("n", "<leader>st", ":split term://bash | resize 20<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>vt", ":vsplit term://bash<CR>", opts)
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", opts)
+
+-- Nvim Tree
+-- - : go to parent directory
+-- ctrl+] : go inside current directory
+-- a : create file/directory (for directory add trailing slash "/")
+-- r : rename
+-- d : delete
+-- c : copy to clipboard
+-- x : cut to clipboard
+-- p : paste
+-- s : open file/directory in file explorer
+-- g? : view all the shortcuts
+vim.api.nvim_set_keymap("n", "<leader>1", ":NvimTreeToggle<CR>", opts)
+
+-- Telescope
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-p>",
+  ":lua require'telescope'.extensions.project.project{}<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>fi",
+  "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files prompt_prefix=🔍<CR>",
+  opts
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>fg",
+  "<cmd>Telescope live_grep find_command=rg,--no-ignore,--hidden,--files prompt_prefix=🔍<CR>",
+  opts
+)
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fr", "<cmd>Telescope neoclip<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>Telescope command_history<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fs", "<cmd>Telescope search_history<CR>", opts)
+

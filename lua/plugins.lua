@@ -23,10 +23,29 @@ return require('packer').startup(function(use)
     use "morhetz/gruvbox"
     use "nvim-lualine/lualine.nvim"
 
-  use {
-        'kyazdani42/nvim-tree.lua',
-        config = function() require'nvim-tree'.setup {} end
+    -- Start Screen
+    use "mhinz/vim-startify"
+
+    -- Explorer
+    use "kyazdani42/nvim-tree.lua"
+    use "nvim-lua/plenary.nvim"
+    use "nvim-telescope/telescope.nvim"
+    use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+    use "nvim-telescope/telescope-project.nvim"
+    use "ggandor/lightspeed.nvim"
+    use "karb94/neoscroll.nvim"
+    use "kevinhwang91/nvim-bqf"
+    use "mhinz/vim-grepper"
+    use "andymass/vim-matchup"
+    use "markstory/vim-zoomwin"
+    use "jeffkreeftmeijer/vim-numbertoggle"
+    use {
+      "AckslD/nvim-neoclip.lua",
+      config = function()
+        require("neoclip").setup()
+      end
     }
+
 
 
   -- Automatically set up your configuration after cloning packer.nvim
